@@ -7,10 +7,12 @@ import lombok.Data;
 
 import java.util.List;
 @Data
-@Entity
+@Entity(name = "theatres")
 public class Theatre extends BaseModel{
     private String name;
     private String address;
-    @OneToMany
+    @OneToMany(mappedBy = "theatre")
     private List<Screen> screens;
+    @ManyToOne
+    private City city;
 }
